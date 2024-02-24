@@ -6,12 +6,15 @@ use Illuminate\Http\RedirectResponse;
 
 class LocaleController extends Controller
 {
-	/**
-	 * Handle the incoming request.
-	 */
-	public function __invoke($locale): RedirectResponse
+	public function setLocale($locale): RedirectResponse
 	{
+		if (!array_key_exists($locale, config('app.available_locales'))) {
+			$fallback = app()->getFallbackLocale();
+			app()->setLocale($fallback);
+		}
+
 		app()->setLocale($locale);
+
 		session()->put('locale', $locale);
 
 		return redirect()->back();
