@@ -2,32 +2,24 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
-use Illuminate\Validation\ValidationException;
-use Illuminate\View\View;
+use App\Http\Requests\AuthenticateUserRequest;
+use Illuminate\Http\RedirectResponse;
+use Illuminate\Support\Facades\Auth;
 
 class AuthController extends Controller
 {
-	public function login(): View
+	public function authenticate(AuthenticateUserRequest $request): RedirectResponse
 	{
-		return view('auth.login');
-	}
+		$credentials = $request->validated();
 
-	public function auth(Request $request)
-	{
-		$validated = $request->validate([
-			'email'    => 'required',
-			'password' => 'required',
-		]);
-
-		if (!auth()->attempt($validated)) {
-			throw ValidationException::withMessages([
-				'email' => 'Your provided credentials are invalid.',
-			]);
+		if (!Auth::attempt($credentials)) {
+			return back()->withErrors([
+				'credentials' => 'The provided credentials do not match our records.',
+			])->onlyInput('email');
 		}
 
-		session()->regenerate();
+		$request->session()->regenerate();
 
-		return redirect('/')->with('success', 'Welcome Back!');
+		return redirect()->intended();
 	}
 }
