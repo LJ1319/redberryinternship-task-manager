@@ -4,12 +4,12 @@
             <img src="{{ asset('images/cover.png') }}" alt="default cover photo" class="h-full w-full">
         </div>
 
-        <div class="my-auto w-1/2">
-            <div class="mx-auto w-3/5">
+        <div class="flex w-1/2 flex-col">
+            <div class="mx-auto my-auto w-3/5">
                 <div class="flex justify-between">
                     <div>
-                        <h1 class="text-3xl font-bold text-[#2F363D]">{{ strtoupper(__('messages.welcome')) }}</h1>
-                        <p class="text-[#6A737D]">{{ ucfirst(__('messages.credentials'))  }}</p>
+                        <h1 class="text-3xl text-[#2F363D] font-bold">{{ strtoupper(__('messages.welcome')) }}</h1>
+                        <p class=" text-[#6A737D]">{{ ucfirst(__('messages.credentials'))  }}</p>
                     </div>
 
                     <img src="{{ asset('images/smile-icon.svg') }}" alt="smile icon" class="h-full">
@@ -27,7 +27,7 @@
                             placeholder="{{ ucfirst(__('messages.email')) }}"
                             value="{{ old('email') }}"
                             required
-                            class="h-20 w-full rounded-2xl bg-[#F6F8FA] px-4 focus:outline-none focus:ring-1 focus:ring-[#499AF9] @if($errors->get('credentials') || $errors->get('email')) border border-red-500 focus:ring-opacity-0 @endif">
+                            class="h-20 w-full px-4 rounded-2xl bg-[#F6F8FA] focus:outline-none focus:ring-1 focus:ring-[#499AF9] @if($errors->get('credentials') || $errors->get('email')) border border-red-500 focus:ring-opacity-0 @endif">
                     </div>
 
                     <div x-cloak x-data="{ show: false }" class="relative">
@@ -39,7 +39,7 @@
                             name="password"
                             placeholder="{{ ucfirst(__('messages.password')) }}"
                             required
-                            class="h-20 w-full rounded-2xl bg-[#F6F8FA] px-4 focus:outline-none focus:ring-1 focus:ring-[#499AF9] @if($errors->get('credentials') || $errors->get('password')) border border-red-500 focus:ring-opacity-0 @endif"
+                            class="h-20 w-full rounded-2xl px-4 bg-[#F6F8FA] focus:outline-none focus:ring-1 focus:ring-[#499AF9] @if($errors->get('credentials') || $errors->get('password')) border border-red-500 focus:ring-opacity-0 @endif"
                         >
 
                         <div class="absolute top-1/2 right-4 cursor-pointer" style="transform: translateY(-50%);">
@@ -57,13 +57,14 @@
                     @endif
 
                     <button
-                        class="h-20 w-full rounded-2xl bg-[#499AF9] text-white font-bold px-4 focus:outline-none focus:bg-[#3386E7] hover:bg-[#3386E7]"
+                        class="h-20 w-full px-4 rounded-2xl bg-[#499AF9] text-white font-bold focus:outline-none focus:bg-[#3386E7] hover:bg-[#3386E7]"
                     >
                         {{ strtoupper(__('messages.login')) }}
                     </button>
                 </form>
             </div>
-            <x-language-switcher/>
+
+            <x-language-switcher class="mx-auto w-max"/>
         </div>
     </div>
 </x-layout>
