@@ -8,11 +8,11 @@
             <div class="mx-auto my-auto w-3/5">
                 <div class="flex justify-between">
                     <div>
-                        <h1 class="text-3xl text-[#2F363D] font-bold">{{ strtoupper(__('messages.welcome')) }}</h1>
+                        <h1 class="text-4xl text-[#2F363D] font-bold">{{ strtoupper(__('messages.welcome')) }}</h1>
                         <p class=" text-[#6A737D]">{{ ucfirst(__('messages.credentials'))  }}</p>
                     </div>
 
-                    <img src="{{ asset('images/smile-icon.svg') }}" alt="smile icon" class="h-full">
+                    <img src="{{ asset('images/smile.svg') }}" alt="smile icon" class="h-full">
                 </div>
 
                 <form action="{{ route('authenticate') }}" method="post" class="mt-14 space-y-6">
