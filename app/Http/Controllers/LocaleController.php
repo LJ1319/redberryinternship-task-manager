@@ -8,14 +8,15 @@ class LocaleController extends Controller
 {
 	public function setLocale($locale): RedirectResponse
 	{
-		if (!array_key_exists($locale, config('app.available_locales'))) {
+		if (isset($locale) && in_array($locale, config('app.available_locales'))) {
+			app()->setLocale($locale);
+			session()->put('locale', $locale);
+		} else {
 			$fallback = app()->getFallbackLocale();
+
 			app()->setLocale($fallback);
+			session()->put('locale', $fallback);
 		}
-
-		app()->setLocale($locale);
-
-		session()->put('locale', $locale);
 
 		return redirect()->back();
 	}
