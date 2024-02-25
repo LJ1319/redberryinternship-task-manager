@@ -64,7 +64,7 @@
                 </form>
             </div>
 
-            <x-language-switcher/>
+            <x-language-switcher class="mx-auto w-max"/>
         </div>
     </div>
 </x-layout>
