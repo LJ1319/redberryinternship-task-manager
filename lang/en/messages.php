@@ -7,7 +7,7 @@ return [
 	'password'         => 'write your password',
 	'login'            => 'log in',
 	'my_tasks'         => 'my tasks',
-	'due_tasks'        => 'due tasks',
+	'overdue_tasks'    => 'overdue tasks',
 	'profile'          => 'profile',
 	'logout'           => 'log out',
 	'your_tasks'       => 'your tasks',

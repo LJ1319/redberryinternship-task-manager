@@ -4,7 +4,7 @@
 
         <div class="flex w-10/12 flex-shrink-0 flex-col gap-10">
             <div class="flex h-full flex-col gap-10 pt-24">
-                <x-header title="{{ strtoupper(__('messages.your_tasks')) }}">
+                <x-header title="{{ strtoupper(__('messages.overdue_tasks')) }}">
                     <div class="flex items-center gap-4">
                         <x-form.delete-old/>
                         <x-add-link/>
@@ -24,25 +24,25 @@
                         </thead>
 
                         <tbody>
-                        @foreach($tasks as $task)
+                        @foreach($overdues as $overdue)
                             <tr>
                                 <x-table.data>
-                                    <p class="line-clamp-1 text-[#6A737D]">{{ $task->name }}</p>
+                                    <p class="line-clamp-1 text-[#6A737D]">{{ $overdue->name }}</p>
                                 </x-table.data>
 
                                 <x-table.data>
-                                    <p class="line-clamp-1 text-[#6A737D]">{{ $task->description }}</p>
+                                    <p class="line-clamp-1 text-[#6A737D]">{{ $overdue->description }}</p>
                                 </x-table.data>
 
                                 <x-table.data>
-                                    <time class="text-[#6A737D]">{{ $task->created_at->format('d/m/Y') }}</time>
+                                    <time class="text-[#6A737D]">{{ $overdue->created_at->format('d/m/Y') }}</time>
                                 </x-table.data>
 
                                 <x-table.data>
                                     <time
-                                        class="{{ $task->due_date->lessThan(now()) ? 'text-red-500' : 'text-[#6A737D]' }}"
+                                        class="{{ $overdue->due_date->lessThan(now()) ? 'text-red-500' : 'text-[#6A737D]' }}"
                                     >
-                                        {{ $task->due_date->format('d/m/Y') }}</time>
+                                        {{ $overdue->due_date->format('d/m/Y') }}</time>
                                 </x-table.data>
 
                                 <x-table.data class="flex gap-6">
@@ -61,9 +61,9 @@
                     </table>
                 </div>
 
-                @if($tasks->count(8))
+                @if($overdues->count(8))
                     <div class="mx-auto w-max">
-                        {{ $tasks->links() }}
+                        {{ $overdues->links() }}
                     </div>
                 @endif
             </div>
