@@ -3,7 +3,7 @@
          style="background-image: url({{ asset('images/profile.jpg') }})"></div>
 
     <div class="flex flex-grow flex-col gap-8">
-        <x-sidebar.link href="#" src='images/tasks.svg' alt="tasks icon" width="20"
+        <x-sidebar.link href="{{ route('dashboard') }}" src='images/tasks.svg' alt="tasks icon" width="20"
                         text="{{ ucfirst(__('messages.my_tasks')) }}"/>
 
 

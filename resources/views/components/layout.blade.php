@@ -15,7 +15,7 @@
     </style>
 </head>
 <body>
-<main class="h-screen p-14">
+<main class="h-screen p-10">
     {{ $slot }}
 </main>
 </body>
