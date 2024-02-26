@@ -1,54 +1,26 @@
 <x-layout>
     <div class="flex h-full justify-between gap-14">
-        <aside class="flex flex-col gap-32 justify-center items-center w-full py-10 rounded-2xl bg-[#F6F8FA]">
-            <div class="mx-auto w-max">
-                <img src="{{ asset('images/profile.png') }}" alt="profile picture" width="100" height="100">
-            </div>
-
-            <div class="flex flex-grow flex-col gap-8">
-                <x-link href="#" src='images/tasks.svg' alt="tasks icon" width="20"
-                        text="{{ ucfirst(__('messages.my_tasks')) }}"/>
-
-
-                <x-link href="#" src='images/due.svg' alt="due icon" width="20"
-                        text="{{ ucfirst(__('messages.due_tasks')) }}"/>
-
-
-                <x-link href="#" src='images/profile.svg' alt="profile icon" width="20"
-                        text="{{ ucfirst(__('messages.profile')) }}"/>
-            </div>
-
-            <form action="#" method="post">
-                @csrf
-
-                <button class="flex gap-4">
-                    <img src="{{ asset('images/logout.svg') }}" alt="logout icon" width="20">
-                    <span class="text-[#2F363D]">{{ ucfirst(__('messages.logout')) }}</span>
-                </button>
-            </form>
-        </aside>
+        <x-sidebar.sidebar/>
 
         <div class="flex w-10/12 flex-shrink-0 flex-col gap-14">
             <div class="flex h-full flex-col gap-10 pt-40">
-                <div class="flex items-center justify-between">
-                    <h1 class="px-10 text-4xl text-[#2F363D] font-semibold">{{ strtoupper(__('messages.your_tasks')) }}</h1>
-
+                <x-header title="{{ strtoupper(__('messages.your_tasks')) }}">
                     <div class="flex items-center gap-4">
                         <form action="#" method="post">
                             @csrf
 
-                            <x-form.delete-tasks/>
+                            <x-form.delete-old/>
                         </form>
 
                         <button
                             class="h-14 w-max bg-[#499AF9] rounded-[14px] text-white font-semibold focus:outline-none">
                             <a href="#" class="flex w-full gap-4 px-4 leading-[56px]">
                                 <img src="{{ asset('images/plus.svg') }}" alt="plus icon">
-                                {{ strtoupper(__('messages.add_task')) }}
+                                <span>{{ strtoupper(__('messages.add_task')) }}</span>
                             </a>
                         </button>
                     </div>
-                </div>
+                </x-header>
 
                 <div class="flex h-full flex-col">
                     <table class="table-fixed">
