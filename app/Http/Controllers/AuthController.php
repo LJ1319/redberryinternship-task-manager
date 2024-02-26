@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\AuthenticateUserRequest;
 use Illuminate\Http\RedirectResponse;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
 class AuthController extends Controller
@@ -21,5 +22,16 @@ class AuthController extends Controller
 		$request->session()->regenerate();
 
 		return redirect()->intended();
+	}
+
+	public function logout(Request $request): RedirectResponse
+	{
+		Auth::logout();
+
+		$request->session()->invalidate();
+
+		$request->session()->regenerateToken();
+
+		return redirect('/');
 	}
 }

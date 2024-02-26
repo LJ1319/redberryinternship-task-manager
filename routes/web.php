@@ -10,3 +10,4 @@ Route::view('/', 'tasks.index')->name('dashboard')->middleware('auth');
 
 Route::view('login', 'auth.login')->name('login')->middleware('guest');
 Route::post('login', [AuthController::class, 'authenticate'])->name('authenticate')->middleware('guest');
+Route::post('logout', [AuthController::class, 'logout'])->name('logout')->middleware('auth');
