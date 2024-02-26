@@ -13,10 +13,10 @@
 
         <x-sidebar.link href="#" src='images/profile.svg' alt="profile icon" width="20"
                         text="{{ ucfirst(__('messages.profile')) }}"/>
-        
+
     </div>
 
-    <form action="#" method="post">
+    <form action="{{ route('logout') }}" method="post">
         @csrf
 
         <button class="flex gap-4">
