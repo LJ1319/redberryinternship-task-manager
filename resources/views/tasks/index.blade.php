@@ -1,9 +1,9 @@
 <x-layout>
-    <div class="flex h-full justify-between gap-14">
+    <div class="flex h-full justify-between gap-10">
         <x-sidebar.sidebar/>
 
-        <div class="flex w-10/12 flex-shrink-0 flex-col gap-14">
-            <div class="flex h-full flex-col gap-10 pt-40">
+        <div class="flex w-10/12 flex-shrink-0 flex-col gap-7">
+            <div class="flex h-full flex-col gap-7 pt-24">
                 <x-header title="{{ strtoupper(__('messages.your_tasks')) }}">
                     <div class="flex items-center gap-4">
                         <form action="#" method="post">
@@ -35,162 +35,42 @@
                         </thead>
 
                         <tbody>
-                        <tr>
-                            <x-table.data>
-                                <p class="line-clamp-1 text-[#6A737D]">The Sliding Mr. Bones (Next Stop,
-                                    Pottersville)</p>
-                            </x-table.data>
+                        @foreach($tasks as $task)
+                            <tr>
+                                <x-table.data>
+                                    <p class="line-clamp-1 text-[#6A737D]">{{ $task->name }}</p>
+                                </x-table.data>
 
-                            <x-table.data>
-                                <p class="line-clamp-1 text-[#6A737D]">The Sliding Mr. Bones (Next Stop,
-                                    Pottersville)</p>
-                            </x-table.data>
+                                <x-table.data>
+                                    <p class="line-clamp-1 text-[#6A737D]">{{ $task->description }}</p>
+                                </x-table.data>
 
-                            <x-table.data>
-                                <time class="text-[#6A737D]">{{ now() }}</time>
-                            </x-table.data>
+                                <x-table.data>
+                                    <time class="text-[#6A737D]">{{ $task->created_at->format('d/m/Y') }}</time>
+                                </x-table.data>
 
-                            <x-table.data>
-                                <time class="text-[#6A737D]">{{ now() }}</time>
-                            </x-table.data>
+                                <x-table.data>
+                                    <time class="text-[#6A737D]">{{ $task->due_date->format('d/m/Y') }}</time>
+                                </x-table.data>
 
-                            <x-table.data class="flex w-96 gap-6">
-                                <form action="#" method="post">
-                                    @csrf
+                                <x-table.data class="flex gap-6">
+                                    <form action="#" method="post">
+                                        @csrf
 
-                                    <button class="underline">{{ ucfirst(__('messages.delete')) }}</button>
-                                </form>
+                                        <button class="underline">{{ ucfirst(__('messages.delete')) }}</button>
+                                    </form>
 
-                                <a href="#" class="underline">{{ ucfirst(__('messages.edit')) }}</a>
-                                <a href="#" class="underline">{{ ucfirst(__('messages.show')) }}</a>
-                            </x-table.data>
-                        </tr>
-                        <tr>
-                            <x-table.data>
-                                <p class="line-clamp-1 text-[#6A737D]">The Sliding Mr. Bones (Next Stop,
-                                    Pottersville)</p>
-                            </x-table.data>
-
-                            <x-table.data>
-                                <p class="line-clamp-1  text-[#6A737D]">The Sliding Mr. Bones (Next Stop,
-                                    Pottersville)</p>
-                            </x-table.data>
-
-                            <x-table.data>
-                                <time class="text-[#6A737D]">{{ now() }}</time>
-                            </x-table.data>
-
-                            <x-table.data>
-                                <time class="text-[#6A737D]">{{ now() }}</time>
-                            </x-table.data>
-
-                            <x-table.data class="flex w-96 gap-6">
-                                <form action="#" method="post">
-                                    @csrf
-
-                                    <button class="underline">{{ ucfirst(__('messages.delete')) }}</button>
-                                </form>
-
-                                <a href="#" class="underline">{{ ucfirst(__('messages.edit')) }}</a>
-                                <a href="#" class="underline">{{ ucfirst(__('messages.show')) }}</a>
-                            </x-table.data>
-                        </tr>
-                        <tr>
-                            <x-table.data>
-                                <p class="line-clamp-1 text-[#6A737D]">The Sliding Mr. Bones (Next Stop,
-                                    Pottersville)</p>
-                            </x-table.data>
-
-                            <x-table.data>
-                                <p class="line-clamp-1  text-[#6A737D]">The Sliding Mr. Bones (Next Stop,
-                                    Pottersville)</p>
-                            </x-table.data>
-
-                            <x-table.data>
-                                <time class="text-[#6A737D]">{{ now() }}</time>
-                            </x-table.data>
-
-                            <x-table.data>
-                                <time class="text-[#6A737D]">{{ now() }}</time>
-                            </x-table.data>
-
-                            <x-table.data class="flex w-96 gap-6">
-                                <form action="#" method="post">
-                                    @csrf
-
-                                    <button class="underline">{{ ucfirst(__('messages.delete')) }}</button>
-                                </form>
-
-                                <a href="#" class="underline">{{ ucfirst(__('messages.edit')) }}</a>
-                                <a href="#" class="underline">{{ ucfirst(__('messages.show')) }}</a>
-                            </x-table.data>
-                        </tr>
-                        <tr>
-                            <x-table.data>
-                                <p class="line-clamp-1 text-[#6A737D]">The Sliding Mr. Bones (Next Stop,
-                                    Pottersville)</p>
-                            </x-table.data>
-
-                            <x-table.data>
-                                <p class="line-clamp-1  text-[#6A737D]">The Sliding Mr. Bones (Next Stop,
-                                    Pottersville)</p>
-                            </x-table.data>
-
-                            <x-table.data>
-                                <time class="text-[#6A737D]">{{ now() }}</time>
-                            </x-table.data>
-
-                            <x-table.data>
-                                <time class="text-[#6A737D]">{{ now() }}</time>
-                            </x-table.data>
-
-                            <x-table.data class="flex w-96 gap-6">
-                                <form action="#" method="post">
-                                    @csrf
-
-                                    <button class="underline">{{ ucfirst(__('messages.delete')) }}</button>
-                                </form>
-
-                                <a href="#" class="underline">{{ ucfirst(__('messages.edit')) }}</a>
-                                <a href="#" class="underline">{{ ucfirst(__('messages.show')) }}</a>
-                            </x-table.data>
-                        </tr>
-                        <tr>
-                            <x-table.data>
-                                <p class="line-clamp-1 text-[#6A737D]">The Sliding Mr. Bones (Next Stop,
-                                    Pottersville)</p>
-                            </x-table.data>
-
-                            <x-table.data>
-                                <p class="line-clamp-1  text-[#6A737D]">The Sliding Mr. Bones (Next Stop,
-                                    Pottersville)</p>
-                            </x-table.data>
-
-                            <x-table.data>
-                                <time class="text-[#6A737D]">{{ now() }}</time>
-                            </x-table.data>
-
-                            <x-table.data>
-                                <time class="text-[#6A737D]">{{ now() }}</time>
-                            </x-table.data>
-
-                            <x-table.data class="flex gap-6">
-                                <form action="#" method="post">
-                                    @csrf
-
-                                    <button class="underline">{{ ucfirst(__('messages.delete')) }}</button>
-                                </form>
-
-                                <a href="#" class="underline">{{ ucfirst(__('messages.edit')) }}</a>
-                                <a href="#" class="underline">{{ ucfirst(__('messages.show')) }}</a>
-                            </x-table.data>
-                        </tr>
+                                    <a href="#" class="underline">{{ ucfirst(__('messages.edit')) }}</a>
+                                    <a href="#" class="underline">{{ ucfirst(__('messages.show')) }}</a>
+                                </x-table.data>
+                            </tr>
+                        @endforeach
                         </tbody>
                     </table>
                 </div>
 
                 <div class="mx-auto w-max">
-                    pagination
+                    {{ $tasks->links() }}
                 </div>
             </div>
 
