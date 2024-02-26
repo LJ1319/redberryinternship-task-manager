@@ -1,4 +1,4 @@
-<div {{ $attributes->merge(['class' => "space-x-4"]) }}>
+<div {{ $attributes->merge(['class' => ""]) }}>
     @foreach(config('app.available_locales') as $locale_name => $available_locale)
         @if(app()->isLocale($available_locale))
             <button class="w-24 h-12 bg-[#F6F8FA] rounded-xl text-sm text-[#2F363D]">{{ $locale_name }}</button>
