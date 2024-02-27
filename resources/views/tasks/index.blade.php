@@ -2,29 +2,18 @@
     <div class="flex h-full justify-between gap-10">
         <x-sidebar.sidebar/>
 
-        <div class="flex w-10/12 flex-shrink-0 flex-col gap-7">
-            <div class="flex h-full flex-col gap-7 pt-24">
+        <div class="flex w-10/12 flex-shrink-0 flex-col gap-10">
+            <div class="flex h-full flex-col gap-10 pt-24">
                 <x-header title="{{ strtoupper(__('messages.your_tasks')) }}">
                     <div class="flex items-center gap-4">
-                        <form action="#" method="post">
-                            @csrf
-
-                            <x-form.delete-old/>
-                        </form>
-
-                        <button
-                            class="h-14 w-max bg-[#499AF9] rounded-[14px] text-white font-semibold focus:outline-none">
-                            <a href="#" class="flex w-full gap-4 px-4 leading-[56px]">
-                                <img src="{{ asset('images/plus.svg') }}" alt="plus icon">
-                                <span>{{ strtoupper(__('messages.add_task')) }}</span>
-                            </a>
-                        </button>
+                        <x-form.delete-old/>
+                        <x-add-link/>
                     </div>
                 </x-header>
 
                 <div class="flex h-full flex-col">
                     <table class="table-fixed">
-                        <thead class="border-b border-black">
+                        <thead class="border-b border-[#E0E3E7]">
                         <tr>
                             <x-table.head title="messages.task_name"/>
                             <x-table.head title="messages.description"/>
@@ -50,7 +39,10 @@
                                 </x-table.data>
 
                                 <x-table.data>
-                                    <time class="text-[#6A737D]">{{ $task->due_date->format('d/m/Y') }}</time>
+                                    <time
+                                        class="{{ $task->due_date->lessThan(now()) ? 'text-red-500' : 'text-[#6A737D]' }}"
+                                    >
+                                        {{ $task->due_date->format('d/m/Y') }}</time>
                                 </x-table.data>
 
                                 <x-table.data class="flex gap-6">
@@ -69,11 +61,12 @@
                     </table>
                 </div>
 
-                <div class="mx-auto w-max">
-                    {{ $tasks->links() }}
-                </div>
+                @if($tasks->count(8))
+                    <div class="mx-auto w-max">
+                        {{ $tasks->links() }}
+                    </div>
+                @endif
             </div>
-
             <x-language-switcher class="flex justify-end"/>
         </div>
     </div>
