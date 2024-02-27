@@ -16,7 +16,21 @@
 </head>
 <body>
 <main class="h-screen p-10">
-    {{ $slot }}
+    <div class="flex h-full justify-between gap-10">
+        @auth
+            <x-sidebar.sidebar/>
+
+            <div class="flex w-10/12 flex-shrink-0 flex-col gap-10">
+                <div class="flex h-full flex-col gap-10 pt-24">
+                    {{ $slot }}
+                </div>
+
+                <x-language-switcher class="flex justify-end"/>
+            </div>
+        @else
+            {{ $slot }}
+        @endauth
+    </div>
 </main>
 </body>
 </html>
