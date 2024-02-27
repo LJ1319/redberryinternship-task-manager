@@ -17,6 +17,11 @@ class TaskController extends Controller
 		]);
 	}
 
+	public function store()
+	{
+		return 'done';
+	}
+
 	public function deleteOld(): RedirectResponse
 	{
 		Task::where('due_date', '<', now())->delete();
