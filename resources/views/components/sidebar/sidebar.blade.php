@@ -7,7 +7,7 @@
                         text="{{ ucfirst(__('messages.my_tasks')) }}"/>
 
 
-        <x-sidebar.link href="{{ route('overdues') }}" src='images/due.svg' alt="due icon" width="20"
+        <x-sidebar.link href="/?overdue=true" src='images/due.svg' alt="due icon" width="20"
                         text="{{ ucfirst(__('messages.overdue_tasks')) }}"/>
 
 
