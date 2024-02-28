@@ -185,5 +185,10 @@ return [
 	|
 	*/
 
-	'attributes' => [],
+	'attributes' => [
+		'name.en'        => 'name',
+		'name.ka'        => 'name',
+		'description.en' => 'description',
+		'description.ka' => 'description',
+	],
 ];

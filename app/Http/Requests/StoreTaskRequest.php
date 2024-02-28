@@ -14,10 +14,10 @@ class StoreTaskRequest extends FormRequest
 	public function rules(): array
 	{
 		return [
-			'name_en'        => 'required|min:3|regex:/^[a-zA-Z\s\d]+$/',
-			'name_ka'        => 'required|min:3|regex:/^[ა-ჰ\s\d]+$/',
-			'description_en' => 'required|min:3|regex:/^[a-zA-Z\s\d]+$/',
-			'description_ka' => 'required|min:3|regex:/^[ა-ჰ\s\d]+$/',
+			'name.en'        => 'required|min:3|regex:/^[a-zA-Z\s\d]+$/',
+			'name.ka'        => 'required|min:3|regex:/^[ა-ჰ\s\d]+$/',
+			'description.en' => 'required|min:3|regex:/^[a-zA-Z\s\d]+$/',
+			'description.ka' => 'required|min:3|regex:/^[ა-ჰ\s\d]+$/',
 			'due_date'       => 'required|date',
 		];
 	}

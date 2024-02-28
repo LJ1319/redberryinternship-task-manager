@@ -21,16 +21,10 @@ class TaskController extends Controller
 	public function store(StoreTaskRequest $request): RedirectResponse
 	{
 		Task::create([
-			'user_id' => auth()->id(),
-			'name'    => [
-				'en' => $request->get('name_en'),
-				'ka' => $request->get('name_ka'),
-			],
-			'description' => [
-				'en' => $request->get('description_en'),
-				'ka' => $request->get('description_ka'),
-			],
-			'due_date' => $request->get('due_date'),
+			'user_id'     => auth()->id(),
+			'name'        => $request->get('name'),
+			'description' => $request->get('description'),
+			'due_date'    => $request->get('due_date'),
 		]);
 
 		return redirect('/');
