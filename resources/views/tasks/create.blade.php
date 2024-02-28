@@ -6,33 +6,34 @@
             @csrf
 
             <div>
-                <label for="task_english"></label>
-                <x-form.input name="task_english"/>
-                <x-form.error name="task_english"/>
+                <label for="name_en"></label>
+                <x-form.input name="name_en"/>
+                <x-form.error name="name_en"/>
             </div>
 
             <div>
-                <label for="task_georgian"></label>
-                <x-form.input name="task_georgian"/>
-                <x-form.error name="task_georgian"/>
+                <label for="name_ka"></label>
+                <x-form.input name="name_ka"/>
+                <x-form.error name="name_ka"/>
             </div>
 
             <div>
-                <label for="description_english"></label>
-                <x-form.textarea name="description_english"/>
-                <x-form.error name="description_english"/>
+                <label for="description_en"></label>
+                <x-form.textarea name="description_en"/>
+                <x-form.error name="description_en"/>
             </div>
 
             <div>
-                <label for="description_georgian"></label>
-                <x-form.textarea name="description_georgian"/>
-                <x-form.error name="description_georgian"/>
+                <label for="description_ka"></label>
+                <x-form.textarea name="description_ka"/>
+                <x-form.error name="description_ka"/>
             </div>
 
             <div>
                 <label for="due_date"></label>
                 <input type="date" name="due_date" id="due_date"
                        class="h-20 w-full px-4 rounded-[14px] bg-[#F6F8FA] text-[#6A737D] uppercase focus:outline-none focus:ring-1 focus:ring-[#499AF9]">
+                <x-form.error name="due_date"/>
             </div>
 
             <button
