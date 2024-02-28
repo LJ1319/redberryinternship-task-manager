@@ -5,10 +5,13 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Spatie\Translatable\HasTranslations;
 
 class Task extends Model
 {
 	use HasFactory;
+
+	use HasTranslations;
 
 	protected $guarded = ['id'];
 
@@ -17,6 +20,8 @@ class Task extends Model
 	protected $casts = [
 		'due_date' => 'datetime',
 	];
+
+	public array $translatable = ['name', 'description'];
 
 	public function scopeFilter($query, array $filters): void
 	{
