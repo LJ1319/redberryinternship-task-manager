@@ -12,6 +12,7 @@ Route::get('/', [TaskController::class, 'index'])->name('dashboard')->middleware
 Route::middleware('auth')->prefix('tasks')->name('tasks.')->group(function () {
 	Route::view('/create', 'tasks.create')->name('create');
 	Route::post('/create', [TaskController::class, 'store'])->name('store');
+	Route::get('/show/{task}', [TaskController::class, 'show'])->name('show');
 	Route::delete('/delete-old', [TaskController::class, 'deleteOld'])->name('delete_old');
 });
 

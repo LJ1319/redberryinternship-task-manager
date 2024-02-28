@@ -1,7 +1,13 @@
 <x-layout>
     <x-header title="{{ strtoupper(__('messages.your_tasks')) }}">
         <div class="flex items-center gap-4">
-            <x-form.delete-old/>
+            <form action="{{ route('tasks.delete_old') }}" method="post">
+                @method('delete')
+                @csrf
+
+                <x-form.action message="delete_old_tasks"/>
+            </form>
+
             <x-add-link/>
         </div>
     </x-header>
@@ -48,7 +54,8 @@
                         </form>
 
                         <a href="#" class="underline">{{ ucfirst(__('messages.edit')) }}</a>
-                        <a href="#" class="underline">{{ ucfirst(__('messages.show')) }}</a>
+                        <a href="{{ route("tasks.show", $task) }}"
+                           class="underline">{{ ucfirst(__('messages.show')) }}</a>
                     </x-table.data>
                 </tr>
             @endforeach

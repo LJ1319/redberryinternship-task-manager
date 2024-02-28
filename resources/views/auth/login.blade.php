@@ -44,7 +44,7 @@
                     </ul>
                 @endif
 
-                <x-form.button text="login"/>
+                <x-form.button message="login"/>
             </form>
         </div>
 

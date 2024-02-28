@@ -35,7 +35,7 @@
                 <x-form.error name="due_date"/>
             </div>
 
-            <x-form.button text="create_task"/>
+            <x-form.button message="create_task"/>
         </form>
     </div>
 </x-layout>

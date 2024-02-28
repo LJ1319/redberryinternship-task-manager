@@ -14,6 +14,7 @@ return [
 	'delete_old_tasks' => 'delete old tasks',
 	'add_task'         => 'add task',
 	'create_task'      => 'create task',
+	'edit_task'        => 'edit task',
 	'task_name'        => 'task name',
 	'description'      => 'description',
 	'created_at'       => 'created at',
