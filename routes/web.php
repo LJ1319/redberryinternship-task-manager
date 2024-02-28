@@ -8,10 +8,12 @@ use Illuminate\Support\Facades\Route;
 Route::get('lang/{locale}', [LocaleController::class, 'setLocale'])->name('locale');
 
 Route::get('/', [TaskController::class, 'index'])->name('dashboard')->middleware('auth');
-Route::view('tasks/create', 'tasks.create')->name('tasks.create')->middleware('auth');
-Route::post('tasks/create', [TaskController::class, 'store'])->name('tasks.store')->middleware('auth');
 
-Route::delete('tasks/delete-old', [TaskController::class, 'deleteOld'])->name('tasks.delete_old')->middleware('auth');
+Route::middleware('auth')->prefix('tasks')->name('tasks.')->group(function () {
+	Route::view('/create', 'tasks.create')->name('create');
+	Route::post('/create', [TaskController::class, 'store'])->name('store');
+	Route::delete('/delete-old', [TaskController::class, 'deleteOld'])->name('delete_old');
+});
 
 Route::view('login', 'auth.login')->name('login')->middleware('guest');
 Route::post('login', [AuthController::class, 'authenticate'])->name('authenticate')->middleware('guest');
