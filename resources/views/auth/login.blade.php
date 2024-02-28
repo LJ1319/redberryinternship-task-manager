@@ -19,27 +19,16 @@
 
                 <div>
                     <label for="email"></label>
-                    <input
-                        type="email"
-                        id="email"
-                        name="email"
-                        placeholder="{{ ucfirst(__('messages.email')) }}"
-                        value="{{ old('email') }}"
-                        required
-                        class="h-20 w-full px-4 rounded-2xl bg-[#F6F8FA] focus:outline-none focus:ring-1 focus:ring-[#499AF9] @if($errors->get('credentials') || $errors->get('email')) border border-red-500 focus:ring-opacity-0 @endif">
+                    <x-form.input name="email" type="email"/>
+                    <x-form.error name="email"/>
                 </div>
 
                 <div x-cloak x-data="{ show: false }" class="relative">
-                    <label for="password"></label>
-                    <input
-                        type="password"
-                        :type="show ? 'text' : 'password'"
-                        id="password"
-                        name="password"
-                        placeholder="{{ ucfirst(__('messages.password')) }}"
-                        required
-                        class="h-20 w-full rounded-2xl px-4 bg-[#F6F8FA] focus:outline-none focus:ring-1 focus:ring-[#499AF9] @if($errors->get('credentials') || $errors->get('password')) border border-red-500 focus:ring-opacity-0 @endif"
-                    >
+                    <div>
+                        <label for="password"></label>
+                        <x-form.input name="password" x-bind:type="show ? 'text' : 'password'"/>
+                        <x-form.error name="password"/>
+                    </div>
 
                     <div class="absolute top-1/2 right-4 cursor-pointer" style="transform: translateY(-50%);">
                         <x-form.show-icon/>
@@ -47,7 +36,7 @@
                     </div>
                 </div>
 
-                @if ($errors->any())
+                @if ($errors->get('credentials'))
                     <ul>
                         @foreach ($errors->all() as $error)
                             <li class="text-xs text-red-500">{{ $error }}</li>
@@ -55,11 +44,7 @@
                     </ul>
                 @endif
 
-                <button
-                    class="h-20 w-full px-4 rounded-2xl bg-[#499AF9] text-white font-bold focus:outline-none focus:bg-[#3386E7] hover:bg-[#3386E7]"
-                >
-                    {{ strtoupper(__('messages.login')) }}
-                </button>
+                <x-form.button text="login"/>
             </form>
         </div>
 

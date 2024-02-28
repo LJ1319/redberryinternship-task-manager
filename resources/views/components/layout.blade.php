@@ -20,10 +20,8 @@
         @auth
             <x-sidebar.sidebar/>
 
-            <div class="flex w-10/12 flex-shrink-0 flex-col gap-10">
-                <div class="flex h-full flex-col gap-10 pt-24">
-                    {{ $slot }}
-                </div>
+            <div class="flex w-10/12 flex-shrink-0 flex-col h-full gap-6 pt-24">
+                {{ $slot }}
 
                 <x-language-switcher class="flex justify-end"/>
             </div>
