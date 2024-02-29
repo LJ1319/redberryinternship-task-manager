@@ -14,7 +14,7 @@ Route::middleware('auth')->controller(TaskController::class)->group(function () 
 		Route::view('/create', 'tasks.create')->name('create');
 		Route::post('/create', 'store')->name('store');
 		Route::get('/{task}', 'show')->name('show');
-		Route::delete('/delete-old', 'deleteOld')->name('delete_old');
+		Route::delete('/{task?}', 'destroy')->name('destroy');
 	});
 });
 
