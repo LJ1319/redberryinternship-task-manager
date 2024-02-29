@@ -19,7 +19,7 @@
 
             <div>
                 <label for="description[en]"></label>
-                <x-form.textarea name="description[en]" error="description.en" message="description"/>
+                <x-form.textarea name="description[en]" error="description.en" message="description_en"/>
                 <x-form.error name="description.en"/>
             </div>
 
