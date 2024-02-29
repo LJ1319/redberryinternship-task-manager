@@ -30,6 +30,13 @@ class TaskController extends Controller
 		return redirect('/');
 	}
 
+	public function show(Task $task): View
+	{
+		return view('tasks.show', [
+			'task' => $task,
+		]);
+	}
+
 	public function deleteOld(): RedirectResponse
 	{
 		Task::where('due_date', '<', now())->delete();

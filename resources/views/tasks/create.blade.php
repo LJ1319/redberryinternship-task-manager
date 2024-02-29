@@ -19,7 +19,7 @@
 
             <div>
                 <label for="description[en]"></label>
-                <x-form.textarea name="description[en]" error="description.en" message="description"/>
+                <x-form.textarea name="description[en]" error="description.en" message="description_en"/>
                 <x-form.error name="description.en"/>
             </div>
 
@@ -35,7 +35,7 @@
                 <x-form.error name="due_date"/>
             </div>
 
-            <x-form.button text="create_task"/>
+            <x-form.button message="create_task"/>
         </form>
     </div>
 </x-layout>
