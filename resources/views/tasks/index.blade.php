@@ -1,7 +1,7 @@
 <x-layout>
     <x-header title="{{ strtoupper(__('messages.your_tasks')) }}">
         <div class="flex items-center gap-4">
-            <form action="{{ route('tasks.delete_old') }}" method="post">
+            <form action="{{ route('tasks.destroy') }}" method="post">
                 @method('delete')
                 @csrf
 
@@ -47,7 +47,8 @@
                     </x-table.data>
 
                     <x-table.data class="flex gap-6">
-                        <form action="#" method="post">
+                        <form action="{{ route('tasks.destroy', $task) }}" method="post">
+                            @method('delete')
                             @csrf
 
                             <button class="underline">{{ ucfirst(__('messages.delete')) }}</button>
