@@ -5,10 +5,16 @@
                 @method('delete')
                 @csrf
 
-                <x-form.action message="delete_old_tasks"/>
+                <x-form.action
+                    class="border border-[#499AF9] text-[#499AF9] hover:bg-[#499AF9] hover:bg-opacity-[0.08] focus:bg-[#499AF9] focus:bg-opacity-[0.08]">
+                    <span>{{ strtoupper(__ ('messages.delete_old_tasks')) }}</span>
+                </x-form.action>
             </form>
 
-            <x-add-link/>
+            <x-form.action class="bg-[#499AF9] text-white hover:bg-[#3386E7] focus:bg-[#3386E7]">
+                <x-form.link href="{{ route('tasks.create') }}" src="plus.svg" alt="plus icon" message="add_task"
+                             class="leading-[56px]"/>
+            </x-form.action>
         </div>
     </x-header>
 
@@ -54,7 +60,8 @@
                             <button class="underline">{{ ucfirst(__('messages.delete')) }}</button>
                         </form>
 
-                        <a href="#" class="underline">{{ ucfirst(__('messages.edit')) }}</a>
+                        <a href="{{ route('tasks.edit', $task) }}"
+                           class="underline">{{ ucfirst(__('messages.edit')) }}</a>
                         <a href="{{ route("tasks.show", $task) }}"
                            class="underline">{{ ucfirst(__('messages.show')) }}</a>
                     </x-table.data>

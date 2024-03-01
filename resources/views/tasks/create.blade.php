@@ -29,7 +29,7 @@
                 <x-form.error name="description.ka"/>
             </div>
 
-            <div class="text-[#959DA5]">
+            <div>
                 <label for="due_date"></label>
                 <x-form.input name="due_date" type="date"/>
                 <x-form.error name="due_date"/>
