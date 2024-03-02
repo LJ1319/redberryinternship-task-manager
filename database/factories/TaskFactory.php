@@ -21,11 +21,11 @@ class TaskFactory extends Factory
 			'user_id'     => User::first()->id,
 			'name'        => [
 				'en' => fake()->sentence(),
-				'ka' => 'სახელი',
+				'ka' => fake('ka_GE')->realTextBetween(25, 50, 2),
 			],
 			'description' => [
 				'en' => fake()->paragraphs(3, true),
-				'ka' => 'აღწერა',
+				'ka' => fake('ka_GE')->realTextBetween(200, 400, 2),
 			],
 			'due_date'    => fake()->dateTime(),
 		];

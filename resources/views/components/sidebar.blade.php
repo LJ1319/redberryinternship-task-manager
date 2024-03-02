@@ -7,7 +7,7 @@
                      text="{{ ucfirst(__('messages.my_tasks')) }}" class="text-[#2F363D]"/>
 
 
-        <x-form.link href="/?overdue=true" src='images/due.svg' alt="due icon" width="20"
+        <x-form.link href="{{ route('dashboard', ['overdue' => 'true'])  }}" src='images/due.svg' alt="due icon" width="20"
                      text="{{ ucfirst(__('messages.overdue_tasks')) }}" class="text-[#2F363D]"/>
 
 
