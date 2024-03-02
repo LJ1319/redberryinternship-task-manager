@@ -28,7 +28,7 @@ class TaskController extends Controller
 			'due_date'    => $request->get('due_date'),
 		]);
 
-		return redirect()->route('dashboard');
+		return redirect()->route('dashboard')->with('success', 'task_created');
 	}
 
 	public function show(Task $task): View
@@ -48,17 +48,23 @@ class TaskController extends Controller
 	public function update(UpdateTaskRequest $request, Task $task): RedirectResponse
 	{
 		$task->update($request->validated());
-		return redirect()->route('tasks.show', $task);
+		return redirect()->route('tasks.show', $task)->with('success', 'task_updated');
 	}
 
 	public function destroy(?Task $task = null): RedirectResponse
 	{
-		if ($task) {
-			$task->delete();
-		} else {
-			Task::where('due_date', '<', now())->delete();
+		if (!$task) {
+			$old_tasks = Task::where('due_date', '<', now());
+
+			if ($old_tasks->count() > 0) {
+				$old_tasks->delete();
+				return redirect()->route('dashboard')->with('success', 'old_tasks_deleted');
+			}
+
+			return redirect()->route('dashboard');
 		}
 
-		return redirect()->route('dashboard');
+		$task->delete();
+		return redirect()->route('dashboard')->with('success', 'task_deleted');
 	}
 }
