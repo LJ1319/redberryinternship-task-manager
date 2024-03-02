@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\StoreTaskRequest;
+use App\Http\Requests\UpdateTaskRequest;
 use App\Models\Task;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\View\View;
@@ -27,7 +28,7 @@ class TaskController extends Controller
 			'due_date'    => $request->get('due_date'),
 		]);
 
-		return redirect('/');
+		return redirect()->route('dashboard');
 	}
 
 	public function show(Task $task): View
@@ -35,6 +36,19 @@ class TaskController extends Controller
 		return view('tasks.show', [
 			'task' => $task,
 		]);
+	}
+
+	public function edit(Task $task): View
+	{
+		return view('tasks.edit', [
+			'task' => $task,
+		]);
+	}
+
+	public function update(UpdateTaskRequest $request, Task $task): RedirectResponse
+	{
+		$task->update($request->validated());
+		return redirect()->route('tasks.show', $task);
 	}
 
 	public function destroy(?Task $task = null): RedirectResponse
@@ -45,6 +59,6 @@ class TaskController extends Controller
 			Task::where('due_date', '<', now())->delete();
 		}
 
-		return redirect('/');
+		return redirect()->route('dashboard');
 	}
 }

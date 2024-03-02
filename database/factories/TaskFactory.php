@@ -19,8 +19,14 @@ class TaskFactory extends Factory
 	{
 		return [
 			'user_id'     => User::first()->id,
-			'name'        => fake()->sentence(),
-			'description' => fake()->paragraph(),
+			'name'        => [
+				'en' => fake()->sentence(),
+				'ka' => fake('ka_GE')->realTextBetween(25, 50, 2),
+			],
+			'description' => [
+				'en' => fake()->paragraphs(3, true),
+				'ka' => fake('ka_GE')->realTextBetween(200, 400, 2),
+			],
 			'due_date'    => fake()->dateTime(),
 		];
 	}

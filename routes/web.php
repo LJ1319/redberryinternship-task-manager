@@ -12,8 +12,10 @@ Route::middleware('auth')->controller(TaskController::class)->group(function () 
 
 	Route::prefix('tasks')->name('tasks.')->group(function () {
 		Route::view('/create', 'tasks.create')->name('create');
-		Route::post('/create', 'store')->name('store');
+		Route::post('/', 'store')->name('store');
 		Route::get('/{task}', 'show')->name('show');
+		Route::get('/{task}/edit', 'edit')->name('edit');
+		Route::put('/{task}', 'update')->name('update');
 		Route::delete('/{task?}', 'destroy')->name('destroy');
 	});
 });
