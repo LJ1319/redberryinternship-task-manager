@@ -1,5 +1,5 @@
 <x-layout>
-    <div class="mx-auto my-auto w-1/3">
+    <div class="mx-auto w-1/3">
         <h1 class="text-4xl text-[#2F363D] font-bold text-center">{{ strtoupper(__('messages.create_task')) }}</h1>
 
         <form action="{{ route('tasks.store') }}" method="post" class="space-y-6">

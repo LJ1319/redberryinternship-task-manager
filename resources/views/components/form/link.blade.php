@@ -1,8 +1,6 @@
-@props(['href', 'src', 'alt', 'message'])
+@props(['href', 'src', 'alt', 'width' => '', 'text'])
 
-<a href="{{ $href }}"
-    {{ $attributes(['class' => 'flex w-full gap-4 justify-between']) }}
->
-    <img src="{{ asset("images/{$src}") }}" alt="{{ $alt }}">
-    <span>{{ strtoupper(__("messages.{$message}")) }}</span>
+<a href="{{ $href }}" {{ $attributes(['class' => 'flex w-max justify-between gap-4']) }}>
+    <img src="{{ asset($src) }}" alt="{{ $alt }}" width="{{ $width }}">
+    <span>{{ $text }}</span>
 </a>

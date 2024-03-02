@@ -18,9 +18,9 @@
 <main class="h-screen p-10">
     <div class="flex h-full justify-between gap-10">
         @auth
-            <x-sidebar.sidebar/>
+            <x-sidebar/>
 
-            <div class="flex h-full w-10/12 flex-shrink-0 flex-col gap-6 py-24">
+            <div class="flex h-full w-10/12 flex-shrink-0 flex-col gap-10 py-24">
                 {{ $slot }}
             </div>
 

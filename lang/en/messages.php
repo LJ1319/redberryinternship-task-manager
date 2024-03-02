@@ -24,6 +24,7 @@ return [
 	'delete'            => 'delete',
 	'edit'              => 'edit',
 	'show'              => 'show',
+	'back'              => 'back',
 	'name_en'           => 'task name in English',
 	'name_ka'           => 'task name in Georgian',
 	'description_en'    => 'task description in English',
