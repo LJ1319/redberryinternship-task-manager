@@ -12,7 +12,7 @@
             </form>
 
             <x-form.action class="bg-[#499AF9] text-white hover:bg-[#3386E7] focus:bg-[#3386E7]">
-                <x-form.link href="{{ route('tasks.create') }}" src="images/plus.svg" alt="plus icon"
+                <x-form.link href="{{ route('tasks.create') }}" src="icons/plus.svg" alt="plus icon"
                              text="{{ strtoupper(__('messages.add_task')) }}"
                              class="leading-[56px]"/>
             </x-form.action>

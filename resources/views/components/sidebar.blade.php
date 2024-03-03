@@ -3,15 +3,15 @@
          style="background-image: url({{ asset('images/profile.jpg') }})"></div>
 
     <div class="flex flex-grow flex-col gap-8 px-2">
-        <x-form.link href="{{ route('dashboard') }}" src='images/tasks.svg' alt="tasks icon" width="20"
+        <x-form.link href="{{ route('dashboard') }}" src='icons/tasks.svg' alt="tasks icon" width="20"
                      text="{{ ucfirst(__('messages.my_tasks')) }}" class="text-[#2F363D]"/>
 
 
-        <x-form.link href="{{ route('dashboard', ['overdue' => 'true'])  }}" src='images/due.svg' alt="due icon" width="20"
+        <x-form.link href="{{ route('dashboard', ['overdue' => 'true'])  }}" src='icons/due.svg' alt="due icon" width="20"
                      text="{{ ucfirst(__('messages.overdue_tasks')) }}" class="text-[#2F363D]"/>
 
 
-        <x-form.link href="#" src='images/profile.svg' alt="profile icon" width="20"
+        <x-form.link href="#" src='icons/profile.svg' alt="profile icon" width="20"
                      text="{{ ucfirst(__('messages.profile')) }}" class="text-[#2F363D]"/>
     </div>
 
@@ -19,7 +19,7 @@
         @csrf
 
         <button class="flex gap-4">
-            <img src="{{ asset('images/logout.svg') }}" alt="logout icon" width="20">
+            <img src="{{ asset('icons/logout.svg') }}" alt="logout icon" width="20">
             <span class="text-[#2F363D]">{{ ucfirst(__('messages.logout')) }}</span>
         </button>
     </form>

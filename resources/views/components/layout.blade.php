@@ -25,6 +25,10 @@
             </div>
 
             <x-language-switcher class="fixed right-10 bottom-10"/>
+
+            @if(session('success'))
+                <x-toast text="{{ session('success') }}"/>
+            @endif
         @else
             {{ $slot }}
         @endauth
