@@ -5,37 +5,37 @@
         <form action="{{ route('tasks.store') }}" method="post" class="space-y-6">
             @csrf
 
-            <div>
-                <label for="name[en]"></label>
-                <x-form.input name="name[en]" error="name.en" message="name_en"/>
+            <x-form.wrapper state="{ label: false }">
+                <x-form.label name="name[en]" text="name_en"/>
+                <x-form.input name="name[en]" error="name.en" text="name_en"/>
                 <x-form.error name="name.en"/>
-            </div>
+            </x-form.wrapper>
 
-            <div>
-                <label for="name[ka]"></label>
-                <x-form.input name="name[ka]" error="name.ka" message="name_ka"/>
+            <x-form.wrapper state="{ label: false }">
+                <x-form.label name="name[ka]" text="name_ka"/>
+                <x-form.input name="name[ka]" error="name.ka" text="name_ka"/>
                 <x-form.error name="name.ka"/>
-            </div>
+            </x-form.wrapper>
 
-            <div>
-                <label for="description[en]"></label>
-                <x-form.textarea name="description[en]" error="description.en" message="description_en"/>
+            <x-form.wrapper state="{ label: false }">
+                <x-form.label name="description[en]" text="description_en"/>
+                <x-form.textarea name="description[en]" error="description.en" text="description_en"/>
                 <x-form.error name="description.en"/>
-            </div>
+            </x-form.wrapper>
 
-            <div>
-                <label for="description[ka]"></label>
-                <x-form.textarea name="description[ka]" error="description.ka" message="description_ka"/>
+            <x-form.wrapper state="{ label: false }">
+                <x-form.label name="description[ka]" text="description_ka"/>
+                <x-form.textarea name="description[ka]" error="description.ka" text="description_ka"/>
                 <x-form.error name="description.ka"/>
-            </div>
+            </x-form.wrapper>
 
-            <div>
-                <label for="due_date"></label>
+            <x-form.wrapper state="{ label: false }">
+                <x-form.label name="due_date" text="due_date"/>
                 <x-form.input name="due_date" type="date"/>
                 <x-form.error name="due_date"/>
-            </div>
+            </x-form.wrapper>
 
-            <x-form.button message="create_task"/>
+            <x-form.button text="create_task"/>
         </form>
     </div>
 </x-layout>

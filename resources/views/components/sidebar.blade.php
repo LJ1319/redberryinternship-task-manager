@@ -4,15 +4,15 @@
 
     <div class="flex flex-grow flex-col gap-8 px-2">
         <x-form.link href="{{ route('dashboard') }}" src='icons/tasks.svg' alt="tasks icon" width="20"
-                     text="{{ ucfirst(__('messages.my_tasks')) }}" class="text-[#2F363D]"/>
+                     text="my_tasks" class="text-[#2F363D]"/>
 
 
         <x-form.link href="{{ route('dashboard', ['overdue' => 'true'])  }}" src='icons/due.svg' alt="due icon" width="20"
-                     text="{{ ucfirst(__('messages.overdue_tasks')) }}" class="text-[#2F363D]"/>
+                     text="overdue_tasks" class="text-[#2F363D]"/>
 
 
         <x-form.link href="#" src='icons/profile.svg' alt="profile icon" width="20"
-                     text="{{ ucfirst(__('messages.profile')) }}" class="text-[#2F363D]"/>
+                     text="profile" class="text-[#2F363D]"/>
     </div>
 
     <form action="{{ route('logout') }}" method="post">

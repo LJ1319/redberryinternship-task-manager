@@ -11,30 +11,30 @@
                     <p class=" text-[#6A737D]">{{ ucfirst(__('messages.credentials'))  }}</p>
                 </div>
 
-                <img src="{{ asset('images/smile.svg') }}" alt="smile icon" class="h-full">
+                <img src="{{ asset('icons/smile.svg') }}" alt="smile icon" class="h-full">
             </div>
 
             <form action="{{ route('authenticate') }}" method="post" class="mt-14 space-y-6">
                 @csrf
 
-                <div>
-                    <label for="email"></label>
+                <x-form.wrapper state="{ label: false }">
+                    <x-form.label name="email" text="email"/>
                     <x-form.input name="email" type="email"/>
                     <x-form.error name="email"/>
-                </div>
+                </x-form.wrapper>
 
-                <div x-cloak x-data="{ show: false }" class="relative">
-                    <div>
-                        <label for="password"></label>
+                <x-form.wrapper state="{ show: false }">
+                    <x-form.wrapper state="{ label: false }">
+                        <x-form.label name="password" text="password"/>
                         <x-form.input name="password" x-bind:type="show ? 'text' : 'password'"/>
                         <x-form.error name="password"/>
-                    </div>
+                    </x-form.wrapper>
 
                     <div class="absolute top-1/2 right-4 cursor-pointer" style="transform: translateY(-50%);">
                         <x-form.show-icon/>
                         <x-form.hide-icon/>
                     </div>
-                </div>
+                </x-form.wrapper>
 
                 @if ($errors->get('credentials'))
                     <ul>
@@ -44,7 +44,7 @@
                     </ul>
                 @endif
 
-                <x-form.button message="login"/>
+                <x-form.button text="login"/>
             </form>
         </div>
 

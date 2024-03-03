@@ -2,7 +2,7 @@
     <div>
         <div class="flex w-1/3 justify-center">
             <x-form.link href="{{ route('tasks.show', $task) }}" src='icons/left.svg' alt="tasks icon"
-                         text="{{ strtoupper(__('messages.back')) }}"/>
+                         text="back"/>
         </div>
 
         <div class="mx-auto w-1/3">
@@ -12,44 +12,44 @@
                 @method('put')
                 @csrf
 
-                <div>
-                    <label for="name[en]"></label>
-                    <x-form.input name="name[en]" error="name.en" message="name_en"
+                <x-form.wrapper state="{ label: false }">
+                    <x-form.label name="name[en]" text="name_en"/>
+                    <x-form.input name="name[en]" error="name.en" text="name_en"
                                   value="{{ old('name.en', $task->getTranslations('name')['en']) }}"/>
                     <x-form.error name="name.en"/>
-                </div>
+                </x-form.wrapper>
 
-                <div>
-                    <label for="name[ka]"></label>
-                    <x-form.input name="name[ka]" error="name.ka" message="name_ka"
+                <x-form.wrapper state="{ label: false }">
+                    <x-form.label name="name[ka]" text="name_ka"/>
+                    <x-form.input name="name[ka]" error="name.ka" text="name_ka"
                                   value="{{ old('name.ka', $task->getTranslations('name')['ka']) }}"/>
                     <x-form.error name="name.ka"/>
-                </div>
+                </x-form.wrapper>
 
-                <div>
-                    <label for="description[en]"></label>
-                    <x-form.textarea name="description[en]" error="description.en" message="description_en">
+                <x-form.wrapper state="{ label: false }">
+                    <x-form.label name="description[en]" text="description_en"/>
+                    <x-form.textarea name="description[en]" error="description.en" text="description_en">
                         {{ old('description.en', $task->getTranslations('description')['en']) }}
                     </x-form.textarea>
                     <x-form.error name="description.en"/>
-                </div>
+                </x-form.wrapper>
 
-                <div>
-                    <label for="description[ka]"></label>
-                    <x-form.textarea name="description[ka]" error="description.ka" message="description_ka">
+                <x-form.wrapper state="{ label: false }">
+                    <x-form.label name="description[ka]" text="description_ka"/>
+                    <x-form.textarea name="description[ka]" error="description.ka" text="description_ka">
                         {{ old('description.ka', $task->getTranslations('description')['ka']) }}
                     </x-form.textarea>
                     <x-form.error name="description.ka"/>
-                </div>
+                </x-form.wrapper>
 
-                <div>
-                    <label for="due_date"></label>
+                <x-form.wrapper state="{ label: false }">
+                    <x-form.label name="due_date" text="due_date"/>
                     <x-form.input type="date" name="due_date"
                                   value="{{ old('due_date', $task->due_date->toDateString()) }}"/>
                     <x-form.error name="due_date"/>
-                </div>
+                </x-form.wrapper>
 
-                <x-form.button message="update_task"/>
+                <x-form.button text="update_task"/>
             </form>
         </div>
     </div>
