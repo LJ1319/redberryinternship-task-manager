@@ -14,7 +14,7 @@ class TaskController extends Controller
 	{
 		return view('tasks.index', [
 			'tasks' => Task::latest()
-				->filter(request(['overdue']))
+				->filter(request(['overdue', 'create-order', 'due-order']))
 				->paginate(8)->withQueryString(),
 		]);
 	}

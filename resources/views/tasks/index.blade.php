@@ -13,7 +13,7 @@
 
             <x-form.action class="bg-[#499AF9] text-white hover:bg-[#3386E7] focus:bg-[#3386E7]">
                 <x-form.link href="{{ route('tasks.create') }}" src="icons/plus.svg" alt="plus icon"
-                             text="add_task"
+                             text="{{ strtoupper(__('messages.add_task')) }}"
                              class="leading-[56px]"/>
             </x-form.action>
         </div>
@@ -23,11 +23,11 @@
         <table class="table-fixed">
             <thead class="border-b border-[#E0E3E7]">
             <tr>
-                <x-table.head title="messages.task_name"/>
-                <x-table.head title="messages.description"/>
-                <x-table.head title="messages.created_at"/>
-                <x-table.head title="messages.due_date"/>
-                <x-table.head title="messages.actions"/>
+                <x-table.head title="task_name"/>
+                <x-table.head title="description"/>
+                <x-table.head title="created_at" sort="true"/>
+                <x-table.head title="due_date" sort="true"/>
+                <x-table.head title="actions"/>
             </tr>
             </thead>
 

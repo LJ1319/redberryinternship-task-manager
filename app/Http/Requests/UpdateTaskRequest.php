@@ -14,10 +14,10 @@ class UpdateTaskRequest extends FormRequest
 	public function rules(): array
 	{
 		return [
-			'name.en'        => 'required|min:3|regex:/^[a-zA-Z\s\d]+$/',
-			'name.ka'        => 'required|min:3|regex:/^[ა-ჰ\s\d]+$/',
-			'description.en' => 'required|min:3|regex:/^[a-zA-Z\s\d]+$/',
-			'description.ka' => 'required|min:3|regex:/^[ა-ჰ\s\d]+$/',
+			'name.en'        => 'required|min:3|regex:/^[a-zA-Z\s\d\p{P}]+$/',
+			'name.ka'        => 'required|min:3|regex:/^[ა-ჰ\s\d\p{P}]+$/',
+			'description.en' => 'required|min:3|regex:/^[a-zA-Z\s\d\p{P}]+$/',
+			'description.ka' => 'required|min:3|regex:/^[ა-ჰ\s\d\p{P}]+$/',
 			'due_date'       => 'required|date',
 		];
 	}
