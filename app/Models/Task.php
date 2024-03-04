@@ -30,30 +30,6 @@ class Task extends Model
 			fn ($query) => $query
 				->where('due_date', '<', now())
 		);
-
-		$query->when(
-			isset($filters['create-order']) && $filters['create-order'] === 'asc',
-			fn ($query) => $query
-				->reorder('created_at', 'asc')->get()
-		);
-
-		$query->when(
-			isset($filters['create-order']) && $filters['create-order'] === 'desc',
-			fn ($query) => $query
-				->reorder('created_at', 'desc')->get()
-		);
-
-		$query->when(
-			isset($filters['due-order']) && $filters['due-order'] === 'asc',
-			fn ($query) => $query
-				->reorder('due_date', 'asc')->get()
-		);
-
-		$query->when(
-			isset($filters['due-order']) && $filters['due-order'] === 'desc',
-			fn ($query) => $query
-				->reorder('due_date', 'desc')->get()
-		);
 	}
 
 	public function user(): BelongsTo

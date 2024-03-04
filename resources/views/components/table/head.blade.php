@@ -7,11 +7,11 @@
             <span>{{ ucfirst(__("messages.$title")) }}</span>
 
             <span>
-                <a href="@if($title === 'created_at') {{ route('dashboard', ['create-order' => 'asc']) }} @else {{ route('dashboard', ['due-order' => 'asc']) }}  @endif">
-                    <img src="{{ asset('icons/sort-up.svg') }}" alt="sort by asc icon"  width="16">
+                <a href="@if($title === 'created_at') {{ route('dashboard', ['order_column' => 'created_at', 'order_direction' => 'asc']) }} @else {{ route('dashboard', ['order_column' => 'due_date', 'order_direction' => 'asc']) }}  @endif">
+                    <img src="{{ asset('icons/sort-up.svg') }}" alt="sort by asc icon" width="16">
                 </a>
 
-                   <a href="@if($title === 'created_at') {{ route('dashboard', ['create-order' => 'desc']) }} @else {{ route('dashboard', ['due-order' => 'desc']) }}  @endif">
+               <a href="@if($title === 'created_at') {{ route('dashboard', ['order_column' => 'created_at', 'order_direction' => 'desc']) }} @else {{ route('dashboard', ['order_column' => 'due_date', 'order_direction' => 'desc']) }}  @endif">
                     <img src="{{ asset('icons/sort-down.svg') }}" alt="sort by desc icon" width="16">
                 </a>
             </span>
