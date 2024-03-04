@@ -12,10 +12,21 @@ class TaskController extends Controller
 {
 	public function index(): View
 	{
+		$orderColumn = request('order_column', 'created_at');
+		if (!in_array($orderColumn, ['created_at', 'due_date'])) {
+			$orderColumn = 'created_at';
+		}
+
+		$orderDirection = request('order_direction', 'desc');
+		if (!in_array($orderDirection, ['asc', 'desc'])) {
+			$orderDirection = 'desc';
+		}
+
 		return view('tasks.index', [
-			'tasks' => Task::latest()
-				->filter(request(['overdue']))
-				->paginate(8)->withQueryString(),
+			'tasks' => Task::filter(request(['overdue']))
+				->orderBy($orderColumn, $orderDirection)
+				->paginate(8)
+				->withQueryString(),
 		]);
 	}
 

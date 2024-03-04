@@ -3,7 +3,7 @@
         <x-form.action
             class="border border-[#499AF9] text-[#499AF9] hover:bg-[#499AF9] hover:bg-opacity-[0.08] focus:bg-[#499AF9] focus:bg-opacity-[0.08]">
             <x-form.link href="{{ route('tasks.edit', $task) }}" src="icons/edit.svg" alt="edit icon"
-                         text="edit_task"
+                         text="{{ strtoupper(__('messages.edit_task')) }}"
                          class="leading-[56px]"/>
         </x-form.action>
     </x-header>
