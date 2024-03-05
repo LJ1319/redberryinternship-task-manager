@@ -1,6 +1,7 @@
 <x-layout>
     <div class="w-1/2 object-contain">
-        <img src="{{ asset('images/cover.png') }}" alt="default cover photo" class="h-full w-full">
+        <img src="{{ asset("storage/$cover") }}" alt="default cover photo"
+             class="h-full w-full rounded-tl-[50px] rounded-bl-[50px]">
     </div>
 
     <div class="flex w-1/2 flex-col">
@@ -19,14 +20,14 @@
 
                 <x-form.wrapper state="{ label: false }">
                     <x-form.label name="email" text="email"/>
-                    <x-form.input name="email" type="email"/>
+                    <x-form.input name="email" type="email" required/>
                     <x-form.error name="email"/>
                 </x-form.wrapper>
 
                 <x-form.wrapper state="{ show: false }">
                     <x-form.wrapper state="{ label: false }">
                         <x-form.label name="password" text="password"/>
-                        <x-form.input name="password" x-bind:type="show ? 'text' : 'password'"/>
+                        <x-form.input name="password" x-bind:type="show ? 'text' : 'password'" required/>
                         <x-form.error name="password"/>
                     </x-form.wrapper>
 
