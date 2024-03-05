@@ -7,7 +7,6 @@ use App\Models\Setting;
 use App\Models\User;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Facades\Hash;
-use Illuminate\Support\Facades\Storage;
 use Illuminate\Validation\ValidationException;
 use Illuminate\View\View;
 
@@ -17,10 +16,11 @@ class ProfileController extends Controller
 	{
 		$profilePhoto = auth()->user()->profile_photo ?? 'profile/profile.png';
 
-		$setting = Setting::first() ? Setting::first() : Setting::create([
-			'data' => ['cover_photo' => 'cover/cover.jpeg'],
-		]);
-		$coverPhoto = $setting->data['cover_photo'];
+		$setting = Setting::firstOrCreate(
+			['title' => 'cover'],
+			['data' => ['path' => 'cover/cover.jpeg']]
+		);
+		$coverPhoto = $setting->data['path'];
 
 		return view('profile.index', [
 			'user'         => auth()->user(),
@@ -34,13 +34,17 @@ class ProfileController extends Controller
 		$validated = $request->validated();
 
 		if ($request->filled('new_password')) {
-			if (!$request->filled('password')) {
-				throw ValidationException::withMessages(['password' => __('messages.password_required')]);
-			}
-
 			$match = Hash::check($validated['password'], auth()->user()->getAuthPassword());
+
 			if (!$match) {
-				throw ValidationException::withMessages(['password' => __('messages.password_match')]);
+				throw ValidationException::withMessages([
+					'password' => __(
+						'validation.same',
+						[
+							'attribute' => __('validation.attributes.password'),
+							'other'     => __('validation.attributes.current_password'),
+						]
+					)]);
 			}
 
 			$user->update([
@@ -49,8 +53,7 @@ class ProfileController extends Controller
 		}
 
 		if ($request->hasFile('profile_photo')) {
-			$profileFile = $request->file('profile_photo');
-			$profilePhoto = Storage::putFileAs('profile', $profileFile, str_replace(' ', '-', $profileFile->getClientOriginalName()));
+			$profilePhoto = $request->file('profile_photo')->store('profile');
 
 			$user->update([
 				'profile_photo' => $profilePhoto ?? null,
@@ -58,13 +61,12 @@ class ProfileController extends Controller
 		}
 
 		if ($request->hasFile('cover_photo')) {
-			$setting = Setting::first();
+			$coverPhoto = $request->file('cover_photo')->store('cover');
 
-			$coverFile = $request->file('cover_photo');
-			$coverPhoto = Storage::putFileAs('cover', $coverFile, str_replace(' ', '-', $coverFile->getClientOriginalName()));
-
-			$setting['data'] = ['cover_photo' => $coverPhoto];
-			$setting->save();
+			Setting::updateOrCreate(
+				['title' => 'cover'],
+				['data' => ['path' => $coverPhoto]]
+			);
 		}
 
 		return redirect()->route('dashboard', )->with('success', 'profile_updated');

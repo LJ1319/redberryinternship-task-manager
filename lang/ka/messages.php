@@ -6,8 +6,6 @@ return [
 	'email'                                            => 'ელ-ფოსტა',
 	'email_label'                                      => 'ელ-ფოსტა',
 	'password'                                         => 'შეიყვანეთ თქვენი პაროლი',
-	'password_required'                                => 'პაროლის ველი სავალდებულოა',
-	'password_match'                                   => 'პაროლი უნდა ემთხვეოდეს მომხმარებლის პაროლს',
 	'password_label'                                   => 'პაროლი',
 	'change_password'                                  => 'შეცვალეთ პაროლი',
 	'current_password'                                 => 'ამჟამინდელი პაროლი',

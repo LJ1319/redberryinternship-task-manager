@@ -12,6 +12,7 @@ return new class extends Migration {
 	{
 		Schema::create('settings', function (Blueprint $table) {
 			$table->id();
+			$table->string('title');
 			$table->json('data')->nullable();
 			$table->timestamps();
 		});

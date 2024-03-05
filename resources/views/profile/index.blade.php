@@ -16,7 +16,7 @@
 
             <div class="space-y-6">
                 <h4 class="text-center text-[#2F363D]">{{ strtoupper(__('messages.change_password')) }}</h4>
-                
+
                 <x-form.wrapper state="{ label: false }">
                     <x-form.label name="password" text="current_password"/>
                     <x-form.input type="password"
@@ -57,7 +57,11 @@
                              class="h-full w-full rounded-full border">
                     </div>
 
-                    <x-form.upload-button name="profile_photo" text="upload_profile"/>
+                    <div>
+                        <x-form.upload-button name="profile_photo" text="upload_profile"/>
+                        <x-form.error name="profile_photo"/>
+                    </div>
+
                     <div x-show="previewUrl !== 'storage/{{ $profilePhoto }}'">
                         <button type="button" class="font-bold text-[#586069]"
                                 @click="clearPreview('profile_photo')">{{ strtoupper(__('messages.delete')) }}</button>
@@ -70,7 +74,11 @@
                              class="h-full w-full rounded-tl-2xl rounded-bl-2xl border">
                     </div>
 
-                    <x-form.upload-button name="cover_photo" text="upload_cover"/>
+                    <div>
+                        <x-form.upload-button name="cover_photo" text="upload_cover"/>
+                        <x-form.error name="cover_photo"/>
+                    </div>
+
                     <div x-show="previewUrl !== 'storage/{{ $coverPhoto }}'">
                         <button type="button" class="font-bold text-[#586069]"
                                 @click="clearPreview('cover_photo')">{{ strtoupper(__('messages.delete')) }}</button>
@@ -90,18 +98,11 @@
             previewUrl: "",
             setDefaultPreview(file) {
                 this.previewUrl = `storage/${file}`;
+                console.log(this.previewUrl);
             },
             updatePreview(file) {
-                let reader,
-                    files = document.getElementById(file).files;
-
-                reader = new FileReader();
-
-                reader.onload = e => {
-                    this.previewUrl = e.target.result;
-                };
-
-                reader.readAsDataURL(files[0]);
+                let files = document.getElementById(file).files;
+                this.previewUrl = URL.createObjectURL(files[0]);
             },
             clearPreview(file) {
                 document.getElementById(file).value = null;

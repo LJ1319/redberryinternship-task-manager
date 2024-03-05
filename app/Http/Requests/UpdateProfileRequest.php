@@ -15,7 +15,7 @@ class UpdateProfileRequest extends FormRequest
 	public function rules(): array
 	{
 		return [
-			'password'      => ['nullable', Password::min(4)],
+			'password'      => ['nullable', 'required_with:new_password', Password::min(4)],
 			'new_password'  => ['nullable', 'confirmed', Password::min(4)],
 			'profile_photo' => ['nullable', 'image'],
 			'cover_photo'   => ['nullable', 'image'],

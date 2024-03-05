@@ -6,8 +6,6 @@ return [
 	'email'                                            => 'e-mail',
 	'email_label'                                      => 'e-mail',
 	'password'                                         => 'write your password',
-	'password_required'                                => 'password field is required',
-	'password_match'                                   => 'password must match to user password',
 	'password_label'                                   => 'password',
 	'change_password'                                  => 'change password',
 	'current_password'                                 => 'current password',
