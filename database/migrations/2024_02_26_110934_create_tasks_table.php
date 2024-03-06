@@ -15,7 +15,7 @@ return new class extends Migration {
 			$table->foreignId('user_id')->constrained()->cascadeOnDelete();
 			$table->json('name');
 			$table->json('description');
-			$table->timestamp('due_date');
+			$table->date('due_date');
 			$table->timestamps();
 		});
 	}
