@@ -186,9 +186,11 @@ return [
 	*/
 
 	'attributes' => [
-		'name.en'        => 'name',
-		'name.ka'        => 'name',
-		'description.en' => 'description',
-		'description.ka' => 'description',
+		'name.en'           => 'name',
+		'name.ka'           => 'name',
+		'description.en'    => 'description',
+		'description.ka'    => 'description',
+		'password'          => 'password',
+		'current_password'  => 'current password',
 	],
 ];

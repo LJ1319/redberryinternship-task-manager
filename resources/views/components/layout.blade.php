@@ -16,15 +16,15 @@
 </head>
 <body>
 <main class="h-screen p-10">
-    <div class="flex h-full justify-between gap-10">
+    <div class="relative flex h-full justify-between gap-10">
         @auth
             <x-sidebar/>
 
-            <div class="flex h-full w-10/12 flex-shrink-0 flex-col gap-10 py-24">
+            <div class="flex h-full w-10/12 flex-shrink-0 flex-col gap-10 py-16">
                 {{ $slot }}
             </div>
 
-            <x-language-switcher class="fixed right-10 bottom-10"/>
+            <x-language-switcher class="absolute right-10 bottom-0"/>
 
             @if(session('success'))
                 <x-toast text="{{ session('success') }}"/>

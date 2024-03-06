@@ -3,12 +3,22 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\AuthenticateUserRequest;
+use App\Models\Setting;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
 class AuthController extends Controller
 {
+	public function login()
+	{
+		$cover = Setting::first()->data['cover_photo'] ?? 'cover/cover.jpeg';
+
+		return view('auth.login', [
+			'cover' => $cover,
+		]);
+	}
+
 	public function authenticate(AuthenticateUserRequest $request): RedirectResponse
 	{
 		$credentials = $request->validated();
