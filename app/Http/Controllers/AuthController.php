@@ -12,7 +12,7 @@ class AuthController extends Controller
 {
 	public function login()
 	{
-		$cover = Setting::first()->data['cover_photo'] ?? 'cover/cover.jpeg';
+		$cover = Setting::first()->data['cover_photo'] ?? asset('images/cover.jpeg');
 
 		return view('auth.login', [
 			'cover' => $cover,

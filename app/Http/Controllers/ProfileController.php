@@ -14,13 +14,8 @@ class ProfileController extends Controller
 {
 	public function index(): View
 	{
-		$profilePhoto = auth()->user()->profile_photo ?? 'profile/profile.png';
-
-		$setting = Setting::firstOrCreate(
-			['title' => 'cover'],
-			['data' => ['path' => 'cover/cover.jpeg']]
-		);
-		$coverPhoto = $setting->data['path'];
+		$profilePhoto = auth()->user()->profile_photo ?? asset('images/profile.png');
+		$coverPhoto = Setting::first()->data['path'] ?? asset('images/cover.jpeg');
 
 		return view('profile.index', [
 			'user'         => auth()->user(),
