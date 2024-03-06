@@ -1,7 +1,7 @@
 # Task Manager
 
 ---
-Task Manager is a platform which gives you opportunity to manage your tasks. Via app, you can add, delete, edit owned tasks, see due date for each one etc...
+Task Manager is a platform which gives you opportunity to manage your tasks. Via app, you can add, delete, edit personal tasks, see due date for each one etc...
 
 ---
 ### Table of Contents
@@ -25,9 +25,9 @@ Task Manager is a platform which gives you opportunity to manage your tasks. Via
 * <img src="readme/assets/tailwindcss.png" height="19" style="position: relative; top: 4px" /> [Tailwind CSS](https://github.com/tailwindlabs/tailwindcss) - CSS framework
 
 ### Getting Started
-1. First of all you need to clone E Space repository from github:
+1. First of all you need to clone Task Manager repository from Github:
 ```sh
-git clone https://github.com/e-space1/espace-back.git
+git clone https://github.com/RedberryInternship/task-manager-luka-jikia
 ```
 
 2. Next step requires you to run *composer install* in order to install all the dependencies.
