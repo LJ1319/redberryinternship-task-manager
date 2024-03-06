@@ -27,7 +27,7 @@ class TaskFactory extends Factory
 				'en' => fake()->paragraphs(3, true),
 				'ka' => fake('ka_GE')->realTextBetween(200, 400, 2),
 			],
-			'due_date'    => fake()->dateTime(),
+			'due_date'    => fake()->date(),
 		];
 	}
 }
