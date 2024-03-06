@@ -14,7 +14,7 @@ Task Manager is a platform which gives you opportunity to manage your tasks. Via
 * [Resources](#resources)
 
 ### Prerequisites
-* <img src="readme/assets/php.svg" width="35" style="position: relative; top: 4px" /> *PHP@8.1
+* <img src="readme/assets/php.svg" width="35" style="position: relative; top: 4px" /> *PHP@8.1*
 * <img src="readme/assets/mysql.png" width="35" style="position: relative; top: 4px" /> *MYSQL@8 and up*
 * <img src="readme/assets/npm.png" width="35" style="position: relative; top: 4px" /> *npm@10 and up*
 * <img src="readme/assets/composer.png" width="35" style="position: relative; top: 6px" /> *composer@2 and up*
@@ -107,6 +107,5 @@ php artisan task-manager:create-user
 ```
 
 ### Resources
-* **Database Design Diagram**
-<img src="readme/assets/drawSQL.png">
+* **Database Design Diagram** <img src="readme/assets/drawSQL.png">
 * [Figma Design](https://www.figma.com/file/HkL8NHL7914PBgdYb6D3zN/Laravel-Dev?type=design&node-id=0-1&mode=design&t=PcfFZjW8iAKz044P-0)
