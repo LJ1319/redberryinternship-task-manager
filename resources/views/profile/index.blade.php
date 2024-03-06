@@ -98,7 +98,6 @@
             previewUrl: "",
             setDefaultPreview(file) {
                 this.previewUrl = `storage/${file}`;
-                console.log(this.previewUrl);
             },
             updatePreview(file) {
                 let files = document.getElementById(file).files;
