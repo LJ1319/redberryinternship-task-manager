@@ -1,7 +1,6 @@
 <x-layout>
-    <div class="w-1/2 object-contain">
-        <img src="{{ asset("storage/$cover") }}" alt="default cover photo"
-             class="h-full w-full rounded-tl-[50px] rounded-bl-[50px]">
+    <div class="w-1/2">
+        <img src="{{ $cover }}" alt="" class="h-full w-full border object-cover rounded-tl-[50px] rounded-bl-[50px]">
     </div>
 
     <div class="flex w-1/2 flex-col">

@@ -62,16 +62,15 @@
                         <x-form.error name="profile_photo"/>
                     </div>
 
-                    <div x-show="previewUrl !== 'storage/{{ $profilePhoto }}'">
-                        <button type="button" class="font-bold text-[#586069]"
-                                @click="clearPreview('profile_photo')">{{ strtoupper(__('messages.delete')) }}</button>
+                    <div x-show="showProfileDelete">
+                        <x-form.delete-button name="profile_photo"/>
                     </div>
                 </div>
 
                 <div class="flex items-center justify-around" x-data="imageData()">
                     <div class="h-32 w-32">
                         <img x-data="setDefaultPreview('{{ $coverPhoto }}')" :src="previewUrl" alt=""
-                             class="h-full w-full rounded-tl-2xl rounded-bl-2xl border">
+                             class="h-full w-full rounded-tl-2xl rounded-bl-2xl border object-cover">
                     </div>
 
                     <div>
@@ -79,9 +78,8 @@
                         <x-form.error name="cover_photo"/>
                     </div>
 
-                    <div x-show="previewUrl !== 'storage/{{ $coverPhoto }}'">
-                        <button type="button" class="font-bold text-[#586069]"
-                                @click="clearPreview('cover_photo')">{{ strtoupper(__('messages.delete')) }}</button>
+                    <div x-show="showCoverDelete">
+                        <x-form.delete-button name="cover_photo"/>
                     </div>
                 </div>
             </div>
@@ -96,12 +94,27 @@
     function imageData() {
         return {
             previewUrl: "",
+            showProfileDelete: false,
+            showCoverDelete: false,
             setDefaultPreview(file) {
-                this.previewUrl = `storage/${file}`;
+                if (file.includes('images/')) {
+                    this.previewUrl = file;
+                } else {
+                    this.previewUrl = `storage/${file}`;
+                }
             },
             updatePreview(file) {
                 let files = document.getElementById(file).files;
                 this.previewUrl = URL.createObjectURL(files[0]);
+            },
+            showDeleteButton(value) {
+                if (value === 'profile_photo') {
+                    this.showProfileDelete = true;
+                }
+
+                if (value === 'cover_photo') {
+                    this.showCoverDelete = true;
+                }
             },
             clearPreview(file) {
                 document.getElementById(file).value = null;
