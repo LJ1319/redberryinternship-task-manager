@@ -1,9 +1,11 @@
 # Task Manager
 
 ---
+
 Task Manager is a platform which gives you opportunity to manage your tasks. Via app, you can add, delete, edit personal tasks, see due date for each one etc...
 
 ---
+
 ### Table of Contents
 * [Prerequisites](#prerequisites)
 * [Tech Stack](#tech-stack)
@@ -14,18 +16,18 @@ Task Manager is a platform which gives you opportunity to manage your tasks. Via
 * [Resources](#resources)
 
 ### Prerequisites
-* <img src="readme/assets/php.svg" width="35" style="position: relative; top: 4px" /> *PHP@8.1*
-* <img src="readme/assets/mysql.png" width="35" style="position: relative; top: 4px" /> *MYSQL@8 and up*
-* <img src="readme/assets/npm.png" width="35" style="position: relative; top: 4px" /> *npm@10 and up*
-* <img src="readme/assets/composer.png" width="35" style="position: relative; top: 6px" /> *composer@2 and up*
+* <img src="readme/assets/php.svg" width="40" style="position: relative; top: 5px" /> *PHP@8.1*
+* <img src="readme/assets/mysql.png" width="40" style="position: relative; top: 5px" /> *MYSQL@8 and up*
+* <img src="readme/assets/npm.png" width="40" style="position: relative; top: 5px" /> *npm@10 and up*
+* <img src="readme/assets/composer.png" width="40" style="position: relative; top: 10px" /> *composer@2 and up*
 
 ### Tech Stack
-* <img src="readme/assets/laravel.png" height="18" style="position: relative; top: 4px" /> [Laravel@10.x](https://laravel.com/docs/10.x) - back-end framework
-* <img src="readme/assets/spatie.png" height="19" style="position: relative; top: 4px" /> [Spatie Translatable](https://github.com/spatie/laravel-translatable) - package for translation
-* <img src="readme/assets/tailwindcss.png" height="19" style="position: relative; top: 4px" /> [Tailwind CSS](https://github.com/tailwindlabs/tailwindcss) - CSS framework
+* <img src="readme/assets/laravel.png" width="20" style="position: relative; top: 5px" /> [Laravel@10.x](https://laravel.com/docs/10.x) - back-end framework
+* <img src="readme/assets/spatie.png" width="20" style="position: relative; top: 5px" /> [Spatie Translatable](https://github.com/spatie/laravel-translatable) - package for translation
+* <img src="readme/assets/tailwindcss.png" width="20" style="position: relative; top: 5px" /> [Tailwind CSS](https://github.com/tailwindlabs/tailwindcss) - CSS framework
 
 ### Getting Started
-1. First of all you need to clone Task Manager repository from Github:
+1. First of all you need to clone Task Manager repository from GitHub:
 ```sh
 git clone https://github.com/RedberryInternship/task-manager-luka-jikia
 ```
@@ -40,10 +42,11 @@ composer install
 npm install
 ```
 
-4. Now we need to set our env file. Go to the root of your project and execute this command.
+4. Now we need to set our **.env** file. Go to the root of your project and execute this command.
 ```sh
 cp .env.example .env
 ```
+
 And now you should provide **.env** file all the necessary environment variables:
 
 **MYSQL:**
@@ -62,13 +65,7 @@ And now you should provide **.env** file all the necessary environment variables
 **Storage:**
 >FILESYSTEM_DISK=public
 
-After setting up **.env** file, execute:
-```sh
-php artisan config:cache
-```
-in order to cache environment variables.
-
-Now execute in the root of you project following:
+After setting up **.env** file, in the root of you project  execute:
 ```sh
 php artisan key:generate
 ```
@@ -78,6 +75,7 @@ To make files publicly accessible execute:
 ```sh
 php artisan storage:link
 ```
+
 You may additionally need to change default filesystem disk in ***filesystems.php***:
 >'default' => env('FILESYSTEM_DISK', 'public'),
 
@@ -90,7 +88,7 @@ php artisan migrate
 ```
 
 ### Development
-You can run Laravel's built-in development server by executing:
+You can run built-in Laravel development server by executing:
 ```sh
 php artisan serve
 ```
