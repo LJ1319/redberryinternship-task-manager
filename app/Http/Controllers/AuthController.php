@@ -7,10 +7,11 @@ use App\Models\Setting;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\View\View;
 
 class AuthController extends Controller
 {
-	public function login()
+	public function login(): View
 	{
 		$cover = Setting::first()->data['cover_photo'] ?? asset('images/cover.jpeg');
 
