@@ -17,34 +17,55 @@
             <div class="space-y-6">
                 <h4 class="text-center text-[#2F363D]">{{ strtoupper(__('messages.change_password')) }}</h4>
 
-                <x-form.wrapper state="{ label: false }">
-                    <x-form.label name="password" text="current_password"/>
-                    <x-form.input type="password"
-                                  name="password"
-                                  error="password"
-                                  text="current_password"
-                    />
-                    <x-form.error name="password"/>
+                <x-form.wrapper state="{ show: false }">
+                    <x-form.wrapper state="{ label: false }">
+                        <x-form.label name="password" text="current_password"/>
+
+                        <x-form.input x-bind:type="show ? 'text' : 'password'"
+                                      name="password"
+                                      error="password"
+                                      text="current_password"
+                        />
+                        <x-form.error name="password"/>
+
+                        <div class="absolute top-1/2 right-4 cursor-pointer" style="transform: translateY(-50%);">
+                            <x-form.show-icon/>
+                            <x-form.hide-icon/>
+                        </div>
+                    </x-form.wrapper>
                 </x-form.wrapper>
 
-                <x-form.wrapper state="{ label: false }">
-                    <x-form.label name="new_password" text="new_password"/>
-                    <x-form.input type="password"
-                                  name="new_password"
-                                  error="new_password"
-                                  text="new_password"
-                    />
-                    <x-form.error name="new_password"/>
+                <x-form.wrapper state="{ show: false }">
+                    <x-form.wrapper state="{ label: false }">
+                        <x-form.label name="new_password" text="new_password"/>
+                        <x-form.input x-bind:type="show ? 'text' : 'password'"
+                                      name="new_password"
+                                      error="new_password"
+                                      text="new_password"
+                        />
+                        <x-form.error name="new_password"/>
+
+                        <div class="absolute top-1/2 right-4 cursor-pointer" style="transform: translateY(-50%);">
+                            <x-form.show-icon/>
+                            <x-form.hide-icon/>
+                        </div>
+                    </x-form.wrapper>
                 </x-form.wrapper>
 
+                <x-form.wrapper state="{ show: false }">
+                    <x-form.wrapper state="{ label: false }">
+                        <x-form.label name="new_password_confirmation" text="password_confirmation"/>
+                        <x-form.input x-bind:type="show ? 'text' : 'password'"
+                                      name="new_password_confirmation"
+                                      error="new_password_confirmation"
+                                      text="password_confirmation"
+                        />
 
-                <x-form.wrapper state="{ label: false }">
-                    <x-form.label name="new_password_confirmation" text="password_confirmation"/>
-                    <x-form.input type="password"
-                                  name="new_password_confirmation"
-                                  error="new_password_confirmation"
-                                  text="password_confirmation"
-                    />
+                        <div class="absolute top-1/2 right-4 cursor-pointer" style="transform: translateY(-50%);">
+                            <x-form.show-icon/>
+                            <x-form.hide-icon/>
+                        </div>
+                    </x-form.wrapper>
                 </x-form.wrapper>
             </div>
 
