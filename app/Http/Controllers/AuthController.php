@@ -7,6 +7,7 @@ use App\Models\Setting;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Session;
 use Illuminate\View\View;
 
 class AuthController extends Controller
@@ -42,12 +43,16 @@ class AuthController extends Controller
 
 	public function logout(Request $request): RedirectResponse
 	{
+		$currentLocale = Session::get('locale');
+
 		Auth::logout();
 
 		$request->session()->invalidate();
 
 		$request->session()->regenerateToken();
 
-		return redirect()->route('dashboard');
+		Session::put('locale', $currentLocale);
+
+		return redirect()->route('login');
 	}
 }
