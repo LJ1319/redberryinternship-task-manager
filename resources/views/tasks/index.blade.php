@@ -20,7 +20,7 @@
     </x-header>
 
     <div class="flex h-full flex-col">
-        <table class="table-fixed">
+        <table class="mt-6 table-fixed">
             <thead class="border-b border-[#E0E3E7]">
             <tr>
                 <x-table.head title="task_name"/>
@@ -74,7 +74,7 @@
 
     @if($tasks->count(8))
         <div class="mx-auto w-max">
-            {{ $tasks->links() }}
+            {{ $tasks->onEachSide(1)->links() }}
         </div>
     @endif
 </x-layout>

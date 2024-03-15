@@ -28,7 +28,7 @@
 
         <div class="hidden m:flex-1 sm:flex sm:items-center sm:justify-between">
             <div>
-                <span class="relative z-0 inline-flex rtl:flex-row-reverse gap-4">
+                <span class="relative z-0 inline-flex rtl:flex-row-reverse gap-2">
                     {{-- Previous Page Link --}}
                     @if ($paginator->onFirstPage())
                         <span aria-disabled="true" aria-label="{{ __('pagination.previous') }}">

@@ -24,7 +24,7 @@
                 {{ $slot }}
             </div>
 
-            <x-language-switcher class="absolute right-10 bottom-0"/>
+            <x-language-switcher class="absolute right-0 bottom-0"/>
 
             @if(session('success'))
                 <x-toast text="{{ session('success') }}"/>
