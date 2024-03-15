@@ -1,7 +1,7 @@
 <x-layout>
     <div>
         <div class="flex w-1/3 justify-center">
-            <x-form.link href="{{ route('tasks.show', $task) }}" src='icons/left.svg' alt="tasks icon"
+            <x-form.link href="{{ url()->previous() }}" src='icons/left.svg' alt="tasks icon"
                          text="{{ ucfirst(__('messages.back')) }}"/>
         </div>
 
