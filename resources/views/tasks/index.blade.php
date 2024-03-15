@@ -25,8 +25,8 @@
             <tr>
                 <x-table.head title="task_name"/>
                 <x-table.head title="description"/>
-                <x-table.head title="created_at" sort="true"/>
-                <x-table.head title="due_date" sort="true"/>
+                <x-table.head title="created_at" sort="true" direction="{{ $direction }}"/>
+                <x-table.head title="due_date" sort="true" direction="{{ $direction }}"/>
                 <x-table.head title="actions"/>
             </tr>
             </thead>
