@@ -1,10 +1,10 @@
 <x-layout>
     <div class="w-1/2">
-        <img src="{{ $cover }}" alt="" class="h-full w-full border object-cover rounded-tl-[50px] rounded-bl-[50px]">
+        <img src="{{ $coverPhoto }}" alt="" class="h-full w-full border object-cover rounded-tl-[50px] rounded-bl-[50px]">
     </div>
 
     <div class="flex w-1/2 flex-col">
-        <div class="mx-auto my-auto w-3/5">
+        <div class="mx-auto my-auto w-[30rem]">
             <div class="flex justify-between">
                 <div>
                     <h1 class="text-4xl text-[#2F363D] font-bold">{{ strtoupper(__('messages.welcome')) }}</h1>

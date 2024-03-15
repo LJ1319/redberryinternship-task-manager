@@ -59,7 +59,7 @@ class ProfileController extends Controller
 			$coverPhoto = $request->file('cover_photo')->store('cover');
 
 			Setting::updateOrCreate(
-				['title' => 'cover'],
+				['title' => 'cover_photo'],
 				['data' => ['path' => $coverPhoto]]
 			);
 		}

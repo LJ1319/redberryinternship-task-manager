@@ -13,10 +13,15 @@ class AuthController extends Controller
 {
 	public function login(): View
 	{
-		$cover = Setting::first()->data['cover_photo'] ?? asset('images/cover.jpeg');
+		$coverPhoto = asset('images/cover.jpeg');
+		$path = Setting::where('title', 'cover_photo')->first()?->data['path'];
+
+		if ($path) {
+			$coverPhoto = asset("storage/$path");
+		}
 
 		return view('auth.login', [
-			'cover' => $cover,
+			'coverPhoto' => $coverPhoto,
 		]);
 	}
 
