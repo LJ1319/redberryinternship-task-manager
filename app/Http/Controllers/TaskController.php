@@ -27,6 +27,7 @@ class TaskController extends Controller
 				->orderBy($orderColumn, $orderDirection)
 				->paginate(8)
 				->withQueryString(),
+			'direction' => $orderDirection,
 		]);
 	}
 

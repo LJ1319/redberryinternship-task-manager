@@ -114,7 +114,7 @@
 <script>
     function imageData() {
         return {
-            previewUrl: "",
+            previewUrl: '',
             showProfileDelete: false,
             showCoverDelete: false,
             setDefaultPreview(file) {
