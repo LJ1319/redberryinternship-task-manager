@@ -121,10 +121,11 @@
             setDefaultPreview(file) {
                 if (file.includes('images/')) {
                     this.previewUrl = file;
-                    this.defaultPreview = file;
                 } else {
                     this.previewUrl = `storage/${file}`;
                 }
+                
+                this.defaultPreview = file;
             },
             updatePreview(file) {
                 let files = document.getElementById(file).files;
