@@ -115,11 +115,13 @@
     function imageData() {
         return {
             previewUrl: '',
+            defaultPreview: '',
             showProfileDelete: false,
             showCoverDelete: false,
             setDefaultPreview(file) {
                 if (file.includes('images/')) {
                     this.previewUrl = file;
+                    this.defaultPreview = file;
                 } else {
                     this.previewUrl = `storage/${file}`;
                 }
@@ -139,7 +141,16 @@
             },
             clearPreview(file) {
                 document.getElementById(file).value = null;
-                this.previewUrl = "";
+                this.previewUrl = '';
+                this.setDefaultPreview(this.defaultPreview);
+
+                if (file === 'profile_photo') {
+                    this.showProfileDelete = false
+                }
+
+                if (file === 'cover_photo') {
+                    this.showCoverDelete = false
+                }
             }
         };
     }
