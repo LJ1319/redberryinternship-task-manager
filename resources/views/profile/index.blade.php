@@ -124,7 +124,7 @@
                 } else {
                     this.previewUrl = `storage/${file}`;
                 }
-                
+
                 this.defaultPreview = file;
             },
             updatePreview(file) {
